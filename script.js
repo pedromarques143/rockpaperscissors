@@ -1,18 +1,23 @@
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     if (computerChoice == 0) {
-        computerChoice = "Rock";
+        return "rock";
     } else if (computerChoice == 1) {
-        computerChoice = "Paper";
+        return "paper";
     } else if (computerChoice == 2) {
-        computerChoice = "Scissors";
+        return "scissors";
     }
-    return computerChoice;
 }
 
-console.log(getComputerChoice())
-
-
 function getHumanChoice() {
-
+    let humanChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    if (humanChoice == "rock") {
+        return "rock";
+    } else if (humanChoice == "paper") {
+        return "paper";
+    } else if (humanChoice == "scissors") {
+        return "scissors"
+    } else {
+        alert("Enter a valid element!")
+    }
 }
