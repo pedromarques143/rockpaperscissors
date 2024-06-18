@@ -1,0 +1,24 @@
+body {
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 300px;
+
+}
+
+.alltext {
+    background-color: burlywood;
+    padding: 20px;
+    border-style:solid;
+    border-color: darkcyan;
+    border-radius: 15px;
+    color: darkred;
+}
+
+.subtext {
+    margin-top: 6px;
+    font-size: 10px;
+    color: coral;
+}
