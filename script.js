@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 playGame();
 
 //function declarations
@@ -27,9 +30,6 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    let humanScore = 0;
-    let computerScore = 0;
-    
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
     if (humanChoice == "invalid") {
@@ -67,7 +67,15 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     for (let i = 0; i < 5; i++) {
         playRound();
-    }  
+        console.log(`You: ${humanScore} Computer: ${computerScore}`);
+    }
+    console.log(`Final result - You: ${humanScore} Computer: ${computerScore}`)
+    if (humanScore == computerScore) {
+        console.log("It is a draw!");
+    } else if (humanScore > computerScore) {
+        console.log("You are the winner!");
+    } else {
+        console.log("Computer is the winner!");
+    }
 }
 
-//“You lose! Paper beats Rock”.
