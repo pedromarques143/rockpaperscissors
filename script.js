@@ -25,13 +25,13 @@ function getHumanChoice() {
         return "scissors";
     } else {
         alert("Wrong gesture!");
-        return "invalid"
+        return "invalid";
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
+function playRound() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
     if (humanChoice == "invalid") {
         console.log("You lose! Wrong gesture.");
         computerScore++;
@@ -61,8 +61,6 @@ function playRound(humanChoice, computerChoice) {
         humanScore++;
     }
 }
-
-
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
