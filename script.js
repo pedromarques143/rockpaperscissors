@@ -98,6 +98,15 @@ function startAgain() {
     const startAgainButton = document.createElement("button");
     startAgainButton.textContent = "Play again";
     startAgainContainer.appendChild(startAgainButton);
+
+    startAgainButton.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
+        startAgainContainer.removeChild(startAgainButton);
+        humanResult.textContent = humanScore;
+        computerResult.textContent = computerScore;
+        gameOver = false;
+    });
 }
 //to do:
 //add start over button
