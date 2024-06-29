@@ -50,13 +50,16 @@ function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
     if (humanChoice == computerChoice) {
         gameComment.textContent = `Computer chose ${computerChoice}. It's a draw!`;
+        gameComment.style.color = "#cc5500";
     } else if (humanChoice == "rock") {
         if (computerChoice == "paper") {
             gameComment.textContent = "Computer chose Paper. You lose!";
+            gameComment.style.color = "red";
             computerScore++;
             computerResult.textContent = computerScore;
         } else {
             gameComment.textContent = "Computer chose Scissors. You win!";
+            gameComment.style.color = "green";
             humanScore++;
             humanResult.textContent = humanScore;
         }
@@ -67,11 +70,13 @@ function playRound(humanChoice) {
             humanResult.textContent = humanScore;
         } else {
             gameComment.textContent = "Computer chose Scissors. You lose!";
+            gameComment.style.color = "red";
             computerScore++;
             computerResult.textContent = computerScore;
         }
     } else if (computerChoice == "rock") {
         gameComment.textContent = "Computer chose Rock. You lose!";
+        gameComment.style.color = "red";
         computerScore++;
         computerResult.textContent = computerScore;
     } else {
@@ -106,7 +111,10 @@ function startAgain() {
         humanResult.textContent = humanScore;
         computerResult.textContent = computerScore;
         gameOver = false;
+        gameComment.textContent = "Press one of the elements to start!";
+        gameComment.style.color = "black"; 
     });
 }
 //to do:
-//change collors depending on winnder
+//change collors depending on winner
+//create computerWin and humanWin functions
