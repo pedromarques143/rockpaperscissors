@@ -8,6 +8,8 @@ const gameComment = document.querySelector("#game-comment");
 const humanResult = document.querySelector("#user-result");
 const computerResult = document.querySelector("#computer-result");
 
+const startAgainContainer = document.querySelector("#start-again-container");
+
 
 //button events to retrieve user choice
 gameButtons[0].addEventListener("click", () => {
@@ -83,12 +85,20 @@ function endGame() {
     if (humanScore == 5 && computerScore < 5) {
         gameComment.textContent = "You are the winner!";
         gameOver = true;
+        startAgain();
+
     } else if (humanScore < 5 && computerScore == 5) {
         gameComment.textContent = "Computer is the winner!"
         gameOver = true;
+        startAgain();
     }
 }
 
+function startAgain() {
+    const startAgainButton = document.createElement("button");
+    startAgainButton.textContent = "Play again";
+    startAgainContainer.appendChild(startAgainButton);
+}
 //to do:
 //add start over button
 //change collors depending on winnder
