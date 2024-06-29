@@ -1,7 +1,36 @@
 let humanScore = 0;
 let computerScore = 0;
+let gameOver = false;
 
-playGame();
+const gameButtons = document.querySelectorAll("button");
+const gameComment = document.querySelector("#game-comment");
+
+const humanResult = document.querySelector("#user-result");
+const computerResult = document.querySelector("#computer-result");
+
+
+//button events to retrieve user choice
+gameButtons[0].addEventListener("click", () => {
+    if(!gameOver) {
+        playRound("rock");
+        endGame();
+    }
+});
+
+gameButtons[1].addEventListener("click", () => {
+    if(!gameOver) {
+        playRound("paper");
+        endGame();
+    }
+});
+
+gameButtons[2].addEventListener("click", () => {
+    if(!gameOver) {
+        playRound("scissors");
+        endGame();
+    }
+});
+
 
 //function declarations
 function getComputerChoice() {
@@ -15,65 +44,51 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    if (choice == "rock") {
-        return "rock";
-    } else if (choice == "paper") {
-        return "paper";
-    } else if (choice == "scissors") {
-        return "scissors";
-    } else {
-        alert("Wrong gesture!");
-        return "invalid";
-    }
-}
-
-function playRound() {
-    let humanChoice = getHumanChoice();
+function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
-    if (humanChoice == "invalid") {
-        console.log("You lose! Wrong gesture.");
-        computerScore++;
-    } else if (humanChoice == computerChoice) {
-        console.log("Draw!");
+    if (humanChoice == computerChoice) {
+        gameComment.textContent = `Computer chose ${computerChoice}. It's a draw!`;
     } else if (humanChoice == "rock") {
         if (computerChoice == "paper") {
-            console.log("You lose! Paper beats Rock.");
+            gameComment.textContent = "Computer chose Paper. You lose!";
             computerScore++;
+            computerResult.textContent = computerScore;
         } else {
-            console.log("You win! Rock beats Scissors.");
+            gameComment.textContent = "Computer chose Scissors. You win!";
             humanScore++;
+            humanResult.textContent = humanScore;
         }
     } else if (humanChoice == "paper") {
         if (computerChoice == "rock") {
-            console.log("You win! Paper beats Rock.");
+            gameComment.textContent = "Computer chose Rock. You win!";
             humanScore++;
+            humanResult.textContent = humanScore;
         } else {
-            console.log("You lose! Scissors beats Paper.");
+            gameComment.textContent = "Computer chose Scissors. You lose!";
             computerScore++;
+            computerResult.textContent = computerScore;
         }
     } else if (computerChoice == "rock") {
-        console.log("You lose! Rock beats Scissors.");
+        gameComment.textContent = "Computer chose Rock. You lose!";
         computerScore++;
+        computerResult.textContent = computerScore;
     } else {
-        console.log("You win! Scissors beats Paper.");
+        gameComment.textContent = "Computer chose Paper. You win!";
         humanScore++;
+        humanResult.textContent =  humanScore;
     }
 }
 
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-        console.log(`You: ${humanScore} Computer: ${computerScore}`);
-    }
-    console.log(`Final result - You: ${humanScore} Computer: ${computerScore}`)
-    if (humanScore == computerScore) {
-        console.log("It is a draw!");
-    } else if (humanScore > computerScore) {
-        console.log("You are the winner!");
-    } else {
-        console.log("Computer is the winner!");
+function endGame() {
+    if (humanScore == 5 && computerScore < 5) {
+        gameComment.textContent = "You are the winner!";
+        gameOver = true;
+    } else if (humanScore < 5 && computerScore == 5) {
+        gameComment.textContent = "Computer is the winner!"
+        gameOver = true;
     }
 }
 
+//to do:
+//add start over button
+//change collors depending on winnder

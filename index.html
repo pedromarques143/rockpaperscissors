@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Rock, Paper, Scissors</title>
 </head>
-<body>
+<body> 
     <div class="alltext">
         <h2>ROCK, PAPERS, SCISSORS</he>
-        <div class="console-text">console game</div>
-        <div class="subtext">check dev tools</div>
+        <div class="console-text">Classic Mode</div>
+        <div class="subtext">The first to reach 5 points wins</div>
     </div>
+
+    <div class="buttons">
+        <button id="rock">🪨</button>
+        <button id="paper">📜</button>
+        <button id="scissors">✂️</button>
+    </div>
+
+    <div class="results">
+        <div id="user-result">0</div>
+        <div id="result-divider">-</div>
+        <div id="computer-result">0</div>
+    </div>
+
+    <div id="game-comment">Press one of the elements to start!</div>
 </body>
 </html>
