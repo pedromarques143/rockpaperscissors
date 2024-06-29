@@ -109,5 +109,4 @@ function startAgain() {
     });
 }
 //to do:
-//add start over button
 //change collors depending on winnder
