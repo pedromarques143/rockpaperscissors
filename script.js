@@ -7,6 +7,7 @@ const gameComment = document.querySelector("#game-comment");
 
 const humanResult = document.querySelector("#user-result");
 const computerResult = document.querySelector("#computer-result");
+const gameResults = document.querySelector(".results");
 
 const startAgainContainer = document.querySelector("#start-again-container");
 
@@ -53,36 +54,20 @@ function playRound(humanChoice) {
         gameComment.style.color = "#cc5500";
     } else if (humanChoice == "rock") {
         if (computerChoice == "paper") {
-            gameComment.textContent = "Computer chose Paper. You lose!";
-            gameComment.style.color = "red";
-            computerScore++;
-            computerResult.textContent = computerScore;
+            computerWin("paper");
         } else {
-            gameComment.textContent = "Computer chose Scissors. You win!";
-            gameComment.style.color = "green";
-            humanScore++;
-            humanResult.textContent = humanScore;
+            humanWin("paper");
         }
     } else if (humanChoice == "paper") {
         if (computerChoice == "rock") {
-            gameComment.textContent = "Computer chose Rock. You win!";
-            humanScore++;
-            humanResult.textContent = humanScore;
+            humanWin("rock");
         } else {
-            gameComment.textContent = "Computer chose Scissors. You lose!";
-            gameComment.style.color = "red";
-            computerScore++;
-            computerResult.textContent = computerScore;
+            computerWin("scissors");
         }
     } else if (computerChoice == "rock") {
-        gameComment.textContent = "Computer chose Rock. You lose!";
-        gameComment.style.color = "red";
-        computerScore++;
-        computerResult.textContent = computerScore;
+        computerWin("rock");
     } else {
-        gameComment.textContent = "Computer chose Paper. You win!";
-        humanScore++;
-        humanResult.textContent =  humanScore;
+        userWinner("paper");
     }
 }
 
@@ -112,9 +97,40 @@ function startAgain() {
         computerResult.textContent = computerScore;
         gameOver = false;
         gameComment.textContent = "Press one of the elements to start!";
-        gameComment.style.color = "black"; 
+        gameComment.style.color = "black";
+        gameResults.style.color = "#a85100"; 
     });
 }
+
+function humanWin(element) {
+    gameComment.textContent = `Computer chose ${element}. You win!`;
+    gameComment.style.color = "green";
+    humanScore++;
+    humanResult.textContent = humanScore;
+    if (humanScore > computerScore) {
+        gameResults.style.color = "green";
+    } else if (computerScore > humanScore) {
+        gameResults.style.color = "8b0000";
+    } else {
+        gameResults.style.color = "#cc5500";
+    }  
+}
+
+function computerWin(element) {
+    gameComment.textContent = `Computer chose ${element}. You lose!`;
+    gameComment.style.color = "#8b0000";
+    computerScore++;
+    computerResult.textContent = computerScore;
+    if (humanScore > computerScore) {
+        gameResults.style.color = "#8b0000";
+    } else if (computerScore > humanScore) {
+        gameResults.style.color = "#8b0000";
+    } else {
+        gameResults.style.color = "#cc5500";
+    }  
+}
+
+
 //to do:
 //change result color depending on current winner
 //create computerWin and humanWin functions
