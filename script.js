@@ -56,7 +56,7 @@ function playRound(humanChoice) {
         if (computerChoice == "paper") {
             computerWin("paper");
         } else {
-            humanWin("paper");
+            humanWin("scissors");
         }
     } else if (humanChoice == "paper") {
         if (computerChoice == "rock") {
@@ -67,7 +67,7 @@ function playRound(humanChoice) {
     } else if (computerChoice == "rock") {
         computerWin("rock");
     } else {
-        userWinner("paper");
+        humanWin("paper");
     }
 }
 
@@ -88,6 +88,13 @@ function startAgain() {
     const startAgainButton = document.createElement("button");
     startAgainButton.textContent = "Play again";
     startAgainContainer.appendChild(startAgainButton);
+    startAgainButton.style.marginTop = "10px";
+    startAgainButton.style.borderRadius = "10px";
+    startAgainButton.style.borderStyle = "solid";
+    startAgainButton.style.borderColor = "darkcyan";
+    startAgainButton.style.padding = "5px";
+    startAgainButton.style.backgroundColor = "#e0c8a7";
+    startAgainButton.style.color = "darkred";
 
     startAgainButton.addEventListener("click", () => {
         humanScore = 0;
@@ -98,7 +105,7 @@ function startAgain() {
         gameOver = false;
         gameComment.textContent = "Press one of the elements to start!";
         gameComment.style.color = "black";
-        gameResults.style.color = "#a85100"; 
+        gameResults.style.color = "#a85100";
     });
 }
 
@@ -129,8 +136,3 @@ function computerWin(element) {
         gameResults.style.color = "#cc5500";
     }  
 }
-
-
-//to do:
-//change collors depending on winner
-//create computerWin and humanWin functions
