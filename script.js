@@ -117,7 +117,7 @@ function humanWin(element) {
     if (humanScore > computerScore) {
         gameResults.style.color = "green";
     } else if (computerScore > humanScore) {
-        gameResults.style.color = "8b0000";
+        gameResults.style.color = "#8b0000";
     } else {
         gameResults.style.color = "#cc5500";
     }  
@@ -129,7 +129,7 @@ function computerWin(element) {
     computerScore++;
     computerResult.textContent = computerScore;
     if (humanScore > computerScore) {
-        gameResults.style.color = "#8b0000";
+        gameResults.style.color = "green";
     } else if (computerScore > humanScore) {
         gameResults.style.color = "#8b0000";
     } else {
