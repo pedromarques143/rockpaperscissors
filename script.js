@@ -91,10 +91,12 @@ function startAgain() {
     startAgainButton.style.marginTop = "10px";
     startAgainButton.style.borderRadius = "10px";
     startAgainButton.style.borderStyle = "solid";
-    startAgainButton.style.borderColor = "darkcyan";
+    startAgainButton.style.borderColor = "indianred";
+    startAgainButton.style.boxShadow = "2px 2px 2px 1px #880b0bbf"
     startAgainButton.style.padding = "5px";
     startAgainButton.style.backgroundColor = "#e0c8a7";
     startAgainButton.style.color = "darkred";
+    startAgainButton.style.fontFamily = "'Courier New', Courier, monospace"
 
     startAgainButton.addEventListener("click", () => {
         humanScore = 0;
