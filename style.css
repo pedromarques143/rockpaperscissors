@@ -1,12 +1,12 @@
 body {
-    background-color: rgb(127, 225, 255);
+    background-color:darksalmon;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-top: 250px;
     flex-direction: column;
-
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .buttons {
@@ -28,7 +28,8 @@ body {
     justify-content: center;
     align-items: center;
     background-color: burlywood;
-    border-color: darkcyan;
+    border-color:indianred;
+    box-shadow: 3px 3px 3px 1px rgba(136, 11, 11, 0.75);       
 }
 
 
@@ -37,7 +38,7 @@ body {
     margin-top: 30px;
     font-size: 70px;
     gap: 10px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Courier New', Courier, monospace;
     color:#cc5500;
 }
 
@@ -46,13 +47,15 @@ body {
     background-color: burlywood;
     padding: 20px;
     border-style:solid;
-    border-color: darkcyan;
+    border-color: indianred;
     border-radius: 15px;
+    border-width: 2px;
     color: darkred;
+    box-shadow: 3px 3px 3px 1px rgba(136, 11, 11, 0.75);     
 }
 
 .subtext {
-    margin-top: 6px;
-    font-size: 10px;
+    margin-top: 15px;
+    font-size: 12px;
     color: coral;
 }
